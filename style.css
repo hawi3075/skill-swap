@@ -1,4 +1,4 @@
-/* 1. Global Styles */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     background-color: #f9fbfd;
 }
 
-/* 2. Navigation */
+/* Navigation */
 nav {
     display: flex;
     justify-content: space-between;
@@ -24,16 +24,17 @@ nav {
 
 .logo {
     font-size: 1.5rem;
-    color: #2a52be; /* Trustworthy Blue */
+    color: #2a52be;
 }
 
 nav ul {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 nav ul li a {
@@ -42,7 +43,7 @@ nav ul li a {
     font-weight: 500;
 }
 
-/* 3. Hero Section */
+/* Hero Section */
 .hero {
     padding: 100px 10%;
     text-align: center;
@@ -55,26 +56,65 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    color: #555;
+/* Skill Gallery Section */
+.skills-container {
+    padding: 80px 10%;
+    background-color: white;
 }
 
-/* 4. Buttons */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a2a6c;
+    margin-bottom: 40px;
+}
+
+/* The Grid Layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Individual Card Styling */
+.skill-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid #ff9800;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+.skill-card h3 {
+    color: #2a52be;
+    margin-bottom: 15px;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Buttons */
 button, .btn {
-    background-color: #ff9800; /* Energetic Orange */
+    background-color: #ff9800;
     color: white;
     padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    transition: 0.3s;
 }
 
 button:hover {
     background-color: #e68a00;
-    transform: translateY(-2px);
+    transform: scale(1.05);
 }
