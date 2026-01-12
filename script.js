@@ -1,19 +1,32 @@
-// 1. Wait for the DOM (the HTML) to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 2. Select the buttons
-    const ctaButton = document.getElementById('ctaBtn');
-    const loginButton = document.getElementById('loginBtn');
+    const skillsGrid = document.getElementById('skills-grid');
 
-    // 3. Add an event listener for the Hero button
-    ctaButton.addEventListener('click', () => {
-        const userSkill = prompt("What skill can you teach today? (e.g. Guitar, Coding, Cooking)");
+    // Data: In a real app, this would come from a database
+    const skillSwaps = [
+        { title: "French Lessons", provider: "Marc", exchange: "Coding" },
+        { title: "UX Design", provider: "Julia", exchange: "Gardening" },
+        { title: "Fixing Bicycles", provider: "Sam", exchange: "Guitar" },
+        { title: "Baking Bread", provider: "Elena", exchange: "Photography" },
+        { title: "Yoga Basics", provider: "Mira", exchange: "Spanish" },
+        { title: "Math Tutoring", provider: "David", exchange: "Cooking" }
+    ];
+
+    // Function to create cards and add them to the page
+    skillSwaps.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('skill-card');
         
-        if (userSkill) {
-            alert(`Awesome! We'll look for people who want to learn ${userSkill}.`);
-        }
+        card.innerHTML = `
+            <h3>${item.title}</h3>
+            <p><strong>Shared by:</strong> ${item.provider}</p>
+            <p><strong>Looking for:</strong> ${item.exchange}</p>
+        `;
+        
+        skillsGrid.appendChild(card);
     });
 
-    // 4. Add a simple console log to make sure it's working
-    console.log("SkillSwap script is active!");
+    // Alert for the main button
+    document.getElementById('ctaBtn').addEventListener('click', () => {
+        alert("Welcome to the community! Join now to start swapping.");
+    });
 });
