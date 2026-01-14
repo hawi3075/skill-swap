@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillSwap | Trade Talent, Not Cash</title>
+    <title>SkillSwap | Community Exchange</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,25 +11,37 @@
     <header>
         <nav>
             <div class="logo"><strong>SkillSwap</strong></div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for a skill (e.g. Yoga)...">
+            </div>
             <ul>
-                <li><a href="#how">How it Works</a></li>
-                <li><a href="#skills">Browse</a></li>
-                <li><button id="loginBtn" class="btn">Join Now</button></li>
+                <li><button id="openModalBtn" class="btn-alt">+ Post a Skill</button></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Learn a skill, <br>share a talent.</h1>
-        <p>Connect with locals to trade what you know for what you want to learn. No money involved.</p>
-        <button id="ctaBtn">Start Swapping</button>
+        <p>The community where your expertise is the only currency you need.</p>
     </section>
 
     <section id="skills" class="skills-container">
-        <h2 class="section-title">What's being swapped right now?</h2>
-        <div id="skills-grid" class="skills-grid">
-            </div>
+        <h2 class="section-title">Available Swaps</h2>
+        <div id="skills-grid" class="skills-grid"></div>
     </section>
+
+    <div id="skillModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Post Your Skill</h2>
+            <form id="skillForm">
+                <input type="text" id="title" placeholder="Skill you offer" required>
+                <input type="text" id="provider" placeholder="Your Name" required>
+                <input type="text" id="exchange" placeholder="Skill you want in return" required>
+                <button type="submit" class="btn">Post to Community</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
