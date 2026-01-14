@@ -1,120 +1,54 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Previous styles remain, adding these upgrades: */
+
+.search-container input {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    width: 300px;
+    outline: none;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9fbfd;
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.logo {
-    font-size: 1.5rem;
-    color: #2a52be;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-}
-
-/* Hero Section */
-.hero {
-    padding: 100px 10%;
-    text-align: center;
-    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    color: #1a2a6c;
-    margin-bottom: 20px;
-}
-
-/* Skill Gallery Section */
-.skills-container {
-    padding: 80px 10%;
-    background-color: white;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #1a2a6c;
-    margin-bottom: 40px;
-}
-
-/* The Grid Layout */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-/* Individual Card Styling */
-.skill-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border-top: 5px solid #ff9800;
-    transition: transform 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-}
-
-.skill-card h3 {
-    color: #2a52be;
-    margin-bottom: 15px;
-}
-
-.skill-card p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-/* Buttons */
-button, .btn {
-    background-color: #ff9800;
-    color: white;
-    padding: 12px 30px;
-    border: none;
+.btn-alt {
+    background: transparent;
+    border: 2px solid #ff9800;
+    color: #ff9800;
+    padding: 8px 20px;
     border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
-button:hover {
-    background-color: #e68a00;
-    transform: scale(1.05);
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#skillForm input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
