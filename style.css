@@ -1,54 +1,137 @@
-/* Previous styles remain, adding these upgrades: */
-
-.search-container input {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    width: 300px;
-    outline: none;
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.btn-alt {
-    background: transparent;
-    border: 2px solid #ff9800;
-    color: #ff9800;
-    padding: 8px 20px;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* NAVIGATION UPGRADE */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2a52be;
+}
+
+.search-container input {
+    width: 350px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-container input:focus {
+    border-color: #2a52be;
+    box-shadow: 0 0 8px rgba(42, 82, 190, 0.2);
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #1a2a6c;
+}
+
+/* SKILLS GRID UPGRADE */
+.skills-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #1a2a6c;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid #ff9800;
+    transition: transform 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    margin-bottom: 15px;
+    color: #2a52be;
+}
+
+.skill-card p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* BUTTONS */
+.btn, .btn-alt {
+    padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    border: none;
+    transition: 0.3s;
 }
 
-/* Modal Styles */
+.btn-alt {
+    background: #ff9800;
+    color: white;
+}
+
+.btn-alt:hover {
+    background: #e68a00;
+}
+
+/* MODAL STYLES (The popup form) */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
-    z-index: 100;
-    left: 0; top: 0;
+    top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    background-color: white;
-    margin: 10% auto;
+    background: white;
     padding: 30px;
-    width: 90%;
-    max-width: 400px;
     border-radius: 15px;
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    right: 20px;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-#skillForm input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 400px;
 }
