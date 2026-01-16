@@ -10,7 +10,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 80vh;
+            min-height: 85vh;
+            background: #f4f7f6;
         }
         .auth-card {
             background: white;
@@ -28,6 +29,7 @@
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 8px;
+            outline: none;
         }
         .toggle-link {
             margin-top: 15px;
@@ -37,6 +39,32 @@
             text-decoration: underline;
         }
         .hidden { display: none; }
+
+        /* SUCCESS MESSAGE STYLING */
+        #successToast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1001;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        #successToast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
@@ -45,12 +73,14 @@
         <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">SkillSwap</a></div>
     </nav>
 
+    <div id="successToast">Login Successful! Redirecting...</div>
+
     <div class="auth-container">
         <div id="loginForm" class="auth-card">
             <h2>Welcome Back</h2>
-            <input type="email" placeholder="Email Address">
+            <input type="email" id="loginEmail" placeholder="Email Address">
             <input type="password" placeholder="Password">
-            <button class="btn-alt" style="width:100%">Login</button>
+            <button class="btn-alt" style="width:100%" onclick="handleLogin()">Login</button>
             <span class="toggle-link" onclick="toggleAuth()">Don't have an account? Sign Up</span>
         </div>
 
@@ -59,7 +89,7 @@
             <input type="text" placeholder="Full Name">
             <input type="email" placeholder="Email Address">
             <input type="password" placeholder="Password">
-            <button class="btn-alt" style="width:100%">Create Account</button>
+            <button class="btn-alt" style="width:100%" onclick="handleLogin('signup')">Create Account</button>
             <span class="toggle-link" onclick="toggleAuth()">Already have an account? Login</span>
         </div>
     </div>
@@ -68,6 +98,22 @@
         function toggleAuth() {
             document.getElementById('loginForm').classList.toggle('hidden');
             document.getElementById('signupForm').classList.toggle('hidden');
+        }
+
+        function handleLogin(type) {
+            const toast = document.getElementById("successToast");
+            
+            // Change text based on login or signup
+            toast.innerHTML = type === 'signup' ? "Account Created Successfully!" : "Login Successful!";
+            
+            // Show the toast
+            toast.className = "show";
+
+            // Wait 3 seconds, then "redirect" back to home
+            setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+                window.location.href = "index.html";
+            }, 3000);
         }
     </script>
 </body>
