@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | Login & Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .auth-card h2 { margin-bottom: 20px; color: #1a2a6c; }
+        .auth-card input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .toggle-link {
+            margin-top: 15px;
+            display: block;
+            color: #2a52be;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">SkillSwap</a></div>
+    </nav>
+
+    <div class="auth-container">
+        <div id="loginForm" class="auth-card">
+            <h2>Welcome Back</h2>
+            <input type="email" placeholder="Email Address">
+            <input type="password" placeholder="Password">
+            <button class="btn-alt" style="width:100%">Login</button>
+            <span class="toggle-link" onclick="toggleAuth()">Don't have an account? Sign Up</span>
+        </div>
+
+        <div id="signupForm" class="auth-card hidden">
+            <h2>Create Account</h2>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+            <input type="password" placeholder="Password">
+            <button class="btn-alt" style="width:100%">Create Account</button>
+            <span class="toggle-link" onclick="toggleAuth()">Already have an account? Login</span>
+        </div>
+    </div>
+
+    <script>
+        function toggleAuth() {
+            document.getElementById('loginForm').classList.toggle('hidden');
+            document.getElementById('signupForm').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
